@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
+
+import { Nav, NavItem } from '@/components/Nav';
 
 import './globals.css';
 
@@ -15,22 +16,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="w-screen border-b border-gray-200 px-20 py-2">
-          <ul className="flex justify-between">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/projects">Projects</Link>
-            </li>
-            <li>
-              <Link href="/favourites">Favourites</Link>
-            </li>
-          </ul>
-        </nav>
+        <Nav>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/about">About</NavItem>
+          <NavItem href="/projects">Projects</NavItem>
+          <NavItem href="/favourites">Favourites</NavItem>
+        </Nav>
         <div className="px-20 py-8">{children}</div>
       </body>
     </html>
