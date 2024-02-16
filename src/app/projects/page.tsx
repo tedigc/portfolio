@@ -1,7 +1,9 @@
+import { Heading } from '@/components/Heading';
+
 export default function Page() {
   return (
     <main>
-      <h1>Projects</h1>
+      <Heading>Projects</Heading>
     </main>
   );
 }
