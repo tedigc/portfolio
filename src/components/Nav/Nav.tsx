@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export type NavItemProps = {
   children: ReactNode;
@@ -7,9 +11,18 @@ export type NavItemProps = {
 };
 
 export const NavItem = ({ children, href }: NavItemProps) => {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <li>
-      <Link href={href} className="rounded-md px-8 py-2 transition-colors hover:bg-gray-200">
+      <Link
+        href={href}
+        className={twMerge(
+          'rounded-md px-8 py-2 text-sm font-bold text-gray-600 transition-colors hover:bg-gray-100',
+          isActive && 'bg-gray-100 text-gray-800',
+        )}
+      >
         {children}
       </Link>
     </li>
@@ -22,7 +35,7 @@ export type NavProps = {
 
 export const Nav = ({ children }: NavProps) => {
   return (
-    <nav className="w-screen border-b border-gray-200 px-20 py-4">
+    <nav className="w-screen border-b border-gray-200 px-12 py-4">
       <ul className="flex justify-between">{children}</ul>
     </nav>
   );

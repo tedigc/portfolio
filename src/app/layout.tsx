@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Mono } from 'next/font/google';
 
 import { Nav, NavItem } from '@/components/Nav';
 
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
+const spaceMono = Space_Mono({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
   title: 'Ted Cater',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={spaceMono.className}>
         <Nav>
           <NavItem href="/">Home</NavItem>
           <NavItem href="/about">About</NavItem>
